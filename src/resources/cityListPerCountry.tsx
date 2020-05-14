@@ -1,10 +1,6 @@
-export type City = {
-    cityId?: number;
-    cityName: string;
-    country: string;
-}
+import { City } from '../api/model';
 
-export const SEACountries: City[] = [
+export const SEACapitals: City[] = [
     { cityId: 1581130, cityName: 'Hanoi', country: 'Vietnam' },
     { cityId: 1609350, cityName: 'Bangkok', country: 'Thailand' },
     { cityId: 1701668, cityName: 'Manila', country: 'Philippines' },
