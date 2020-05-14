@@ -1,4 +1,4 @@
-import { weatherDetails, Country } from '../../api/model';
+import { WeatherDetails, Country } from '../../api/model';
 import { IAction } from './actionTypes';
 
 export interface ICountrySelectedDetailsAction extends IAction<Country> { type: 'COUNTRY_SELECTED'; }

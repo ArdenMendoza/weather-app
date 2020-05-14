@@ -2,11 +2,9 @@ import { createStore, combineReducers, applyMiddleware, compose, Action } from '
 import { combineEpics, createEpicMiddleware, Epic } from 'redux-observable';
 import { ICityWeatherState, weatherDetailsReducer } from './reducers/weatherReducer';
 import { FetchWeatherDetailsEpic } from './epic/weatherCityEpic';
-import { ICountryListState, countryListReducer } from './reducers/countryListReducer';
 
 export interface IWeatherAppState {
     weatherDetails: ICityWeatherState;
-    country: ICountryListState;
 }
 
 export type IWeatherAppEpic<T extends Action<any>> = Epic<T, any, IWeatherAppState>;
@@ -17,8 +15,7 @@ const configureEpic = () => {
 
 const configureReducer = () =>
     combineReducers<IWeatherAppState>({
-        weatherDetails: weatherDetailsReducer,
-        country: countryListReducer,
+        weatherDetails: weatherDetailsReducer
     });
 
 export default function configureStore() {

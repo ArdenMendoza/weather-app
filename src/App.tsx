@@ -3,12 +3,13 @@ import { Provider } from 'react-redux';
 import './App.css';
 import { CountryList } from './components/countryListPage';
 import configureStore from './store/cityStore';
+import { MainPage } from './components/main';
 
 function App() {
   return (
     <Provider store={configureStore()}>
       <div className="App">
-        <CountryList />
+        <MainPage />
       </div>
     </Provider >
   );
