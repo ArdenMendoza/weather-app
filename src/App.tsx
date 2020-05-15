@@ -4,6 +4,7 @@ import './App.css';
 import { CountryList } from './components/countryListPage';
 import configureStore from './store/cityStore';
 import { MainPage } from './components/main';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

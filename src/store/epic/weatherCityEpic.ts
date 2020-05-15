@@ -11,13 +11,16 @@ export const FetchWeatherDetailsEpic: IWeatherAppEpic<ICountrySelectedDetailsAct
     action$.pipe(filter(a => a.type === 'COUNTRY_SELECTED'),
         mergeMap(action => {
             const API_KEY = 'a44d7c9da5be4147f2ef94f31ee10952';
-            const city = SEACapitals.find(c => c.country === action.payload);
+            const city = SEACapitals.find(c => c.country === action.payload.country && c.cityName === action.payload.city);
+            console.log(action.payload);
 
-            return fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${city?.cityId}&appid=${API_KEY}`)
+            return fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${city?.cityId}&appid=${API_KEY}&units=metric`)
                 .then(response => response.json())
                 .then(res => {
+                    console.log(res);
                     const weatherDetails: ICityWeatherState = {
-                        country: action.payload, city: city?.cityName ? city.cityName : '', weatherForecast: getWeatherResponseData(res)
+                        country: action.payload.country,
+                        city: city?.cityName ? city.cityName : '', weatherForecast: getWeatherResponseData(res)
                     };
                     return weatherDetailsDFetched(weatherDetails);
                 })
@@ -28,15 +31,29 @@ const getWeatherResponseData = (data: any): WeatherDetails[] => {
     const wDetails: WeatherDetails[] = [];
     if (data.list) {
         data.list.forEach((w: any) => {
+            const d = new Date(w.dt_txt);
+            const dayName = d.toLocaleDateString('en-US', { weekday: 'long' });
+            const time = d.toLocaleTimeString();
+            if (time === '12:00:00 PM') {
             wDetails.push({
-                main: { temp: w.main.temp, humidity: w.main.humidity },
+                dayName: dayName,
+                time: time,
+                main: { tempMax: w.main.temp_max, tempMin: w.main.temp_min, humidity: w.main.humidity },
                 weather: {
                     main: w.weather[0].main,
                     description: w.weather[0].description,
                     icon: w.weather[0].icon
                 },
             });
+            }
         })
     }
+    // TODO: implement grouping
+    // let group = wDetails.reduce((r: any, a: any) => {
+    //     r[a.dayName] = [...r[a.dayName] || [], a];
+    //     return r;
+    // }, {});
+    // console.log("group", group);
     return wDetails;
+    // return group;
 }

@@ -1,9 +1,10 @@
 import { City } from '../api/model';
 
-export const SEACapitals: City[] = [
+export const  SEACapitals: City[] = [
     { cityId: 1581130, cityName: 'Hanoi', country: 'Vietnam' },
     { cityId: 1609350, cityName: 'Bangkok', country: 'Thailand' },
     { cityId: 1701668, cityName: 'Manila', country: 'Philippines' },
+    { cityId: 1707174, cityName: 'Las Piñas', country: 'Philippines' },
     { cityId: 1733046, cityName: 'Kuala Lumpur', country: 'Malaysia' },
     { cityId: 1642911, cityName: 'Jakarta', country: 'Indonesia' },
     { cityId: 1327865, cityName: 'Union of Burma', country: 'Myanmar' },
