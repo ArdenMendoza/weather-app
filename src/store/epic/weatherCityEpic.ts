@@ -1,6 +1,6 @@
 import { filter, mergeMap } from 'rxjs/operators';
 import { IWeatherAppEpic } from "../cityStore";
-import { weatherDetailsDFetched } from "../actions/weatherDetailsActions";
+import { weatherDetailsFetched } from "../actions/weatherDetailsActions";
 import { WeatherDetails } from '../../api/model';
 import { SEACapitals } from '../../resources/cityListPerCountry';
 import { ICityWeatherState } from '../reducers/weatherReducer';
@@ -22,7 +22,7 @@ export const FetchWeatherDetailsEpic: IWeatherAppEpic<ICountrySelectedDetailsAct
                         country: action.payload.country,
                         city: city?.cityName ? city.cityName : '', weatherForecast: getWeatherResponseData(res)
                     };
-                    return weatherDetailsDFetched(weatherDetails);
+                    return weatherDetailsFetched(weatherDetails);
                 })
         })
     )
@@ -34,7 +34,7 @@ const getWeatherResponseData = (data: any): WeatherDetails[] => {
             const d = new Date(w.dt_txt);
             const dayName = d.toLocaleDateString('en-US', { weekday: 'long' });
             const time = d.toLocaleTimeString();
-            if (time === '12:00:00 PM') {
+            // if (time === '12:00:00 PM') {
             wDetails.push({
                 dayName: dayName,
                 time: time,
@@ -45,7 +45,7 @@ const getWeatherResponseData = (data: any): WeatherDetails[] => {
                     icon: w.weather[0].icon
                 },
             });
-            }
+            // }
         })
     }
     // TODO: implement grouping
