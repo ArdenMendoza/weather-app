@@ -11,13 +11,10 @@ export const FetchWeatherDetailsEpic: IWeatherAppEpic<ICountrySelectedDetailsAct
     action$.pipe(filter(a => a.type === 'COUNTRY_SELECTED'),
         mergeMap(action => {
             const API_KEY = 'a44d7c9da5be4147f2ef94f31ee10952';
-            const city = SEACapitals.find(c => c.country === action.payload.country && c.cityName === action.payload.city);
-            console.log(action.payload);
-
+            const city = SEACapitals.find(c => c.country === action.payload.country && c.cityName === action.payload.cityName);
             return fetch(`https://api.openweathermap.org/data/2.5/forecast?id=${city?.cityId}&appid=${API_KEY}&units=metric`)
                 .then(response => response.json())
                 .then(res => {
-                    console.log(res);
                     const weatherDetails: ICityWeatherState = {
                         country: action.payload.country,
                         city: city?.cityName ? city.cityName : '', weatherForecast: getWeatherResponseData(res)

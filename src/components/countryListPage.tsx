@@ -4,7 +4,8 @@ import { Country, City } from '../api/model';
 import { IWeatherAppState } from '../store/cityStore';
 import { SEACapitals } from '../resources/cityListPerCountry';
 import { selectCountry } from '../store/actions/countryListActions';
-import { Container, Row, Col, ListGroup } from 'react-bootstrap';
+import { Container, Row, Col, ListGroup, Dropdown, DropdownButton } from 'react-bootstrap';
+import { empty } from 'rxjs';
 
 interface Props {
 
@@ -12,30 +13,34 @@ interface Props {
 interface ReduxStateProps {
 }
 interface DispatchProps {
-    onCountrySelect: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+    onCountrySelect: (eventKey: string, e: React.SyntheticEvent<unknown>) => void;
 }
 
 const CountryListDump: React.StatelessComponent<Props & ReduxStateProps & DispatchProps> = (props) => {
     const { onCountrySelect } = props;
     return (
-        <Container fluid>
-            <Row>
-                <Col>
-                    <ListGroup variant={'flush'}>
-                        {SEACapitals.map(c => <ListGroup.Item onClick={onCountrySelect}>{`${c.country}, ${c.cityName}`}</ListGroup.Item>)}
-                    </ListGroup>
-                </Col>
-            </Row>
-        </Container>
-
+        <div style={{ marginTop: '120px' }}>
+            < DropdownButton style={{ marginBottom: '50px' }} id="dropdown-basic-button" title="Select Country" >
+                {SEACapitals.map(c => <Dropdown.Item onSelect={onCountrySelect}>{`${c.country}, ${c.cityName}`}</Dropdown.Item>)}
+            </DropdownButton >
+            <img src={'https://image.flaticon.com/icons/png/512/854/854878.png'} />
+            <h1 style={{ fontWeight: 'bolder' }} >Weather</h1>
+            <h4>Application</h4>
+        </div>
     );
 }
 
 export const CountryList = connect<ReduxStateProps, DispatchProps, Props, IWeatherAppState>((state) => ({
 }), dispatch => ({
-    onCountrySelect: event => {
-        const country = event.currentTarget.innerHTML.substr(0, event.currentTarget.innerHTML.indexOf(',')) as Country;
-        const city = event.currentTarget.innerHTML.substr(event.currentTarget.innerHTML.indexOf(',') + 2, 100);
-        return dispatch(selectCountry({ country, city }));
+    onCountrySelect: (eventKey: string, e: any) => {
+        const country = e.currentTarget.innerHTML.substr(0, e.currentTarget.innerHTML.indexOf(',')) as Country;
+        const city = e.currentTarget.innerHTML.substr(e.currentTarget.innerHTML.indexOf(',') + 2, 100);
+
+        return dispatch(selectCountry({
+            cityName: city,
+            country: country,
+        }));
+        // console.log(e.currentTarget.innerHTML);
+        // return empty();
     }
 }))(CountryListDump)

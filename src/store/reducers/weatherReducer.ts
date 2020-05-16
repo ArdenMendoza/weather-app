@@ -18,11 +18,7 @@ export const weatherDetailsReducer = (state = initialState, action: IFetchedWeat
         case 'FETCHED_WEATHER_DETAILS':
             return action.payload;
         case 'NAVIGATE_HOME':
-            return {
-                country: undefined,
-                city: '',
-                weatherForecast:[]
-            }
+            return initialState;
     }
     return state;
 };
