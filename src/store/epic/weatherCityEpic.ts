@@ -31,9 +31,9 @@ const getWeatherResponseData = (data: any): WeatherDetails[] => {
             const d = new Date(w.dt_txt);
             const dayName = d.toLocaleDateString('en-US', { weekday: 'long' });
             const time = d.toLocaleTimeString();
-            // if (time === '12:00:00 PM') {
             wDetails.push({
                 dayName: dayName,
+                date: getDate(d),
                 time: time,
                 tempMax: w.main.temp_max,
                 tempMin: w.main.temp_min,
@@ -42,8 +42,15 @@ const getWeatherResponseData = (data: any): WeatherDetails[] => {
                 description: w.weather[0].description,
                 icon: w.weather[0].icon
             });
-            // }
         })
     }
     return wDetails;
+}
+
+const getDate = (date: Date) => {
+    var dd = String(date.getDate()).padStart(2, '0');
+    var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = date.getFullYear();
+
+    return mm + '/' + dd + '/' + yyyy;
 }

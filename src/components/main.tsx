@@ -11,10 +11,19 @@ interface ReduxStateProps {
     country: Country;
 }
 
+const getStyles = () => {
+    return {
+        navbarColor: {
+            backgroundColor: '#00529E'
+        } as React.CSSProperties
+    };
+}
+
 const MainPageDump: React.StatelessComponent<ReduxStateProps> = (props) => {
     const { country } = props;
+    const styles = getStyles();
     return <div>
-        <Navbar variant="dark" style={{backgroundColor: '#00529E'}}>
+        <Navbar variant="dark" style={styles.navbarColor} >
             <Navbar.Brand>
                 <img alt="" src={weatherAppLogo} width="30" height="30" className="d-inline-block align-top" />
                 {' SEA Countries | Weather Forecast'}

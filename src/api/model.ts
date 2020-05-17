@@ -8,6 +8,7 @@ export type Country = 'Vietnam' | 'Thailand' | 'Philippines' | 'Malaysia' | 'Ind
 
 export type WeatherDetails = {
     dayName: string;
+    date: string;
     time: string;
     tempMax: number;
     tempMin: number;
