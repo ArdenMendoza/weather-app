@@ -34,12 +34,12 @@ const WDListItemDay: React.StatelessComponent<Props> = props => {
                             {
                                 m[1].map(d => {
                                     return <div style={{ width: '250px', border: '1px #ccc solid', borderRadius: '3px', margin: '3px', display: 'inline-block', padding: '10px' }}>
-                                        <img src={`http://openweathermap.org/img/wn/${d.weather.icon}@2x.png`} />
+                                        <img src={`http://openweathermap.org/img/wn/${d.icon}@2x.png`} />
                                         <h2> {d.time}</h2>
                                         <h4>
-                                            {`${d.main.tempMax} / ${d.main.tempMin}`}
+                                            {`${d.tempMax} / ${d.tempMin}`}
                                         </h4>
-                                        <h4> {d.weather.description}</h4>
+                                        <h4> {d.description}</h4>
                                     </div>
                                 })}
                         </Tab>

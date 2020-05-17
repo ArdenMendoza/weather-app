@@ -1,4 +1,3 @@
-import { WeatherDetails, Country } from '../../api/model';
 import { IAction, ISimpleAction } from './actionTypes';
 import { ICityWeatherState } from '../reducers/weatherReducer';
 

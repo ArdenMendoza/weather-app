@@ -35,12 +35,12 @@ const getWeatherResponseData = (data: any): WeatherDetails[] => {
             wDetails.push({
                 dayName: dayName,
                 time: time,
-                main: { tempMax: w.main.temp_max, tempMin: w.main.temp_min, humidity: w.main.humidity },
-                weather: {
-                    main: w.weather[0].main,
-                    description: w.weather[0].description,
-                    icon: w.weather[0].icon
-                },
+                tempMax: w.main.temp_max,
+                tempMin: w.main.temp_min,
+                humidity: w.main.humidity,
+                main: w.weather[0].main,
+                description: w.weather[0].description,
+                icon: w.weather[0].icon
             });
             // }
         })

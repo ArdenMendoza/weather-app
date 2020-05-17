@@ -5,9 +5,14 @@ export type City = {
 }
 
 export type Country = 'Vietnam' | 'Thailand' | 'Philippines' | 'Malaysia' | 'Indonesia' | 'Myanmar' | 'Cambodia' | 'Laos' | 'Brunei' | 'Singapore' | undefined;
+
 export type WeatherDetails = {
     dayName: string;
     time: string;
-    main: { tempMax: number, tempMin: number, humidity: number };
-    weather: {description: string, icon: string, main: string}
+    tempMax: number;
+    tempMin: number;
+    humidity: number;
+    description: string;
+    icon: string;
+    main: string;
 }
