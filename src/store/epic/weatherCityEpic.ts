@@ -45,12 +45,5 @@ const getWeatherResponseData = (data: any): WeatherDetails[] => {
             // }
         })
     }
-    // TODO: implement grouping
-    // let group = wDetails.reduce((r: any, a: any) => {
-    //     r[a.dayName] = [...r[a.dayName] || [], a];
-    //     return r;
-    // }, {});
-    // console.log("group", group);
     return wDetails;
-    // return group;
 }

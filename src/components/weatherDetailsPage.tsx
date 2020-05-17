@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Country } from '../api/model';
 import { IWeatherAppState } from '../store/cityStore';
 import { ICityWeatherState } from '../store/reducers/weatherReducer';
-import CountryListItem from './weatherDetailsListItem';
+import WDListItemDay from './weatherDetailsListItem';
 import { Container, Row, Col, ListGroup, Button, Breadcrumb } from 'react-bootstrap';
 import { navigateHome } from '../store/actions/weatherDetailsActions';
 
@@ -17,8 +17,6 @@ interface DispatchProps {
 
 const WeatherDetailsDump: React.StatelessComponent<ReduxStateProps & DispatchProps> = (props) => {
     const { weatherDetails, onNavigateHome } = props;
-    // Do this UI: https://www.codemag.com/article/1511071/Building-a-Weather-App-using-OpenWeatherMap-and-AFNetworking
-    https://www.countryflags.io/be/flat/64.png
     return (
         <div>
             <Breadcrumb>
@@ -26,7 +24,6 @@ const WeatherDetailsDump: React.StatelessComponent<ReduxStateProps & DispatchPro
                 <Breadcrumb.Item>{`5 day 3 hour Forecast for ${weatherDetails.city}, ${weatherDetails.country}`}</Breadcrumb.Item>
             </Breadcrumb>
             <div style={{ marginTop: '10px' }}>
-                {/* <Button variant="light" onClick={onNavigateHome} style={{ margin: '5px' }}>{'<< Home'}</Button> */}
                 <img
                     // src={`https://www.countryflags.io/${weatherDetails.countryId}/flat/64.png`}
                     src={`https://cdn.countryflags.com/thumbs/${weatherDetails.country?.toLocaleLowerCase()}/flag-round-250.png`}
@@ -44,9 +41,7 @@ const WeatherDetailsDump: React.StatelessComponent<ReduxStateProps & DispatchPro
                 </div>
             </div>
             <div style={{ textAlign: 'center' }}>
-                {weatherDetails.weatherForecast.map(f => {
-                    return <CountryListItem wd={f} />
-                })}
+                <WDListItemDay wd={weatherDetails.weatherForecast} />
             </div>
         </div>
     );
