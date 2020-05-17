@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Country, City } from '../api/model';
+import { Country, City } from '../models/model';
 import { IWeatherAppState } from '../store/cityStore';
 import { SEACapitals } from '../resources/cityListPerCountry';
 import { selectCountry } from '../store/actions/countryListActions';

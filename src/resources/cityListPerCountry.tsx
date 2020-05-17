@@ -1,4 +1,4 @@
-import { City } from '../api/model';
+import { City } from '../models/model';
 
 export const  SEACapitals: City[] = [
     { cityId: 1581130, cityName: 'Hanoi', country: 'Vietnam' },

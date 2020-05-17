@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Country } from '../api/model';
+import { Country } from '../models/model';
 import { IWeatherAppState } from '../store/cityStore';
 import { WeatherDetails } from './weatherDetailsPage';
 import { CountryList } from './countryListPage';

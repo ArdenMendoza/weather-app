@@ -1,5 +1,5 @@
 import { IFetchedWeatherDetailsAction, INavigateHomeAction } from "../actions/weatherDetailsActions";
-import { Country, WeatherDetails } from "../../api/model";
+import { Country, WeatherDetails } from "../../models/model";
 
 export interface ICityWeatherState {
     country: Country;

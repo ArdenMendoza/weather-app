@@ -1,4 +1,4 @@
-import { City } from '../../api/model';
+import { City } from '../../models/model';
 import { IAction } from './actionTypes';
 
 export interface ICountrySelectedDetailsAction extends IAction<City> { type: 'COUNTRY_SELECTED'; }

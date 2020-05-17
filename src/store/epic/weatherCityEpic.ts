@@ -1,7 +1,7 @@
 import { filter, mergeMap } from 'rxjs/operators';
 import { IWeatherAppEpic } from "../cityStore";
 import { weatherDetailsFetched } from "../actions/weatherDetailsActions";
-import { WeatherDetails } from '../../api/model';
+import { WeatherDetails } from '../../models/model';
 import { SEACapitals } from '../../resources/cityListPerCountry';
 import { ICityWeatherState } from '../reducers/weatherReducer';
 import { ICountrySelectedDetailsAction } from '../actions/countryListActions';

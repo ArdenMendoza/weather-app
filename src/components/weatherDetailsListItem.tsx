@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { WeatherDetails } from '../api/model';
+import { WeatherDetails } from '../models/model';
 import { Tabs, Tab } from 'react-bootstrap';
 
 interface Props {
