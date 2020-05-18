@@ -5,4 +5,14 @@ So I decided to use react with typescript.
 Redux for state management
 Redux Observables to manage the API calls.
 
+
+How to setup:
+
+1. Assuming that Node.js is installed, open any command line tool(cmd or powershell). 
+2. Navigate to the the project folder(the one with package.json)
+3. execute "npm install" and wait for it to finish. when it says "happy hacking", we are good to go. 
+4. execute "npm start" to start the service. The app will open in a new browser tab. 
+
+
+
 -Arden
