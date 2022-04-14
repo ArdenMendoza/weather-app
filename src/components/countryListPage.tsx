@@ -26,6 +26,9 @@ const getStyles = () => {
         frontPageCaption: {
             fontWeight: 'bolder',
         } as React.CSSProperties,
+        img: {
+            height: '200px'
+        }
     };
 }
 
@@ -37,7 +40,7 @@ const CountryListDump: React.StatelessComponent<Props & ReduxStateProps & Dispat
             < DropdownButton style={styles.countryListDropdown} id="dropdown-basic-button" title="Select Country" >
                 {SEACapitals.map(c => <Dropdown.Item onSelect={onCountrySelect}>{`${c.country}, ${c.cityName}`}</Dropdown.Item>)}
             </DropdownButton >
-            <img alt={'img854878'} src={'https://image.flaticon.com/icons/png/512/854/854878.png'} />
+            <img style={styles.img} alt={'weatherImage'} src={'https://cdn-icons.flaticon.com/png/512/3093/premium/3093390.png?token=exp=1649942692~hmac=ac03efadc54fb0fbdfc1e237ce266668'} />
             <h1 style={styles.frontPageCaption} >{'Weather'}</h1>
             <h4>{'Application'}</h4>
         </div>
