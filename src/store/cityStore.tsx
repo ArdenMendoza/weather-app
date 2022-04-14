@@ -1,7 +1,7 @@
-import { createStore, combineReducers, applyMiddleware, compose, Action } from 'redux';
-import { combineEpics, createEpicMiddleware, Epic } from 'redux-observable';
-import { ICityWeatherState, weatherDetailsReducer } from './reducers/weatherReducer';
+import { Action, applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import { createEpicMiddleware, Epic } from 'redux-observable';
 import { FetchWeatherDetailsEpic } from './epic/weatherCityEpic';
+import { ICityWeatherState, weatherDetailsReducer } from './reducers/weatherReducer';
 
 export interface IWeatherAppState {
     weatherDetails: ICityWeatherState;

@@ -45,6 +45,7 @@ const WeatherDetailsDump: React.StatelessComponent<ReduxStateProps & DispatchPro
             </Breadcrumb>
             <div style={styles.detailPageHeader}>
                 <img
+                    alt={'weatherDetailsCountry'}
                     src={`https://cdn.countryflags.com/thumbs/${weatherDetails.country?.toLocaleLowerCase()}/flag-round-250.png`}
                     style={styles.countryFlagImg}
                     height={'50px'}

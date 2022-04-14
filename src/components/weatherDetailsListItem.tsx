@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react';
+import { Tab, Tabs } from 'react-bootstrap';
 import { WeatherDetails } from '../models/model';
-import { Tabs, Tab } from 'react-bootstrap';
 
 interface Props {
     wd: WeatherDetails[];
@@ -49,7 +49,7 @@ const WDListItemDay: React.StatelessComponent<Props> = props => {
                                 m[1].map(d => {
                                     return (
                                         <div style={styles.customCardComponent}>
-                                            <img src={`http://openweathermap.org/img/wn/${d.icon}@2x.png`} />
+                                            <img alt={'openWeatherMapIcon'} src={`http://openweathermap.org/img/wn/${d.icon}@2x.png`} />
                                             <h3> {d.time}</h3>
                                             <h5>
                                                 {`${d.tempMax} / ${d.tempMin}`}

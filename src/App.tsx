@@ -1,10 +1,9 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { Provider } from 'react-redux';
 import './App.css';
-import { CountryList } from './components/countryListPage';
-import configureStore from './store/cityStore';
 import { MainPage } from './components/main';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import configureStore from './store/cityStore';
 
 function App() {
   return (

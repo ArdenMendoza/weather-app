@@ -1,10 +1,10 @@
 import React from 'react';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 import { connect } from 'react-redux';
-import { Country, City } from '../models/model';
-import { IWeatherAppState } from '../store/cityStore';
+import { Country } from '../models/model';
 import { SEACapitals } from '../resources/cityListPerCountry';
 import { selectCountry } from '../store/actions/countryListActions';
-import { Dropdown, DropdownButton } from 'react-bootstrap';
+import { IWeatherAppState } from '../store/cityStore';
 
 interface Props {
 
@@ -37,7 +37,7 @@ const CountryListDump: React.StatelessComponent<Props & ReduxStateProps & Dispat
             < DropdownButton style={styles.countryListDropdown} id="dropdown-basic-button" title="Select Country" >
                 {SEACapitals.map(c => <Dropdown.Item onSelect={onCountrySelect}>{`${c.country}, ${c.cityName}`}</Dropdown.Item>)}
             </DropdownButton >
-            <img src={'https://image.flaticon.com/icons/png/512/854/854878.png'} />
+            <img alt={'img854878'} src={'https://image.flaticon.com/icons/png/512/854/854878.png'} />
             <h1 style={styles.frontPageCaption} >{'Weather'}</h1>
             <h4>{'Application'}</h4>
         </div>
